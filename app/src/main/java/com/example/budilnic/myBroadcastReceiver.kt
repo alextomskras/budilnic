@@ -9,13 +9,12 @@ import android.widget.Toast
 class myBroadcastReceiver: BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
 
-        if (intent!!.action.equals("com.tester.alarmmanager")){
+        if (intent!!.action.equals("com.example.budilnic")) {
             var b=intent.extras
-           // Toast.makeText(context,b.getString("message"),Toast.LENGTH_LONG).show()
+            Toast.makeText(context, b.getString("message"), Toast.LENGTH_LONG).show()
             val notifyMe=Notifications()
             notifyMe.Notify(context!!,b.getString("message"),10)
-        }
-        else if(intent!!.action.equals("android.intent.action.BOOT_COMPLETED")){
+        } else if (intent.action.equals("android.intent.action.BOOT_COMPLETED")) {
 
             val saveData=SaveData(context!!)
             saveData.setAlarm()

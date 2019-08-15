@@ -8,17 +8,19 @@ import android.content.Intent
 import android.os.Build
 import android.support.v4.app.NotificationCompat
 
-class  Notifications(){
+class Notifications {
 
-    val NOTIFIYTAG="new request"
+    val NOTIFIYTAG = "new request111"
     fun Notify(context: Context,message:String,number:Int){
         val intent=Intent(context,MainActivity::class.java)
+        val channelID = "com.example.budilnic.news"
 
-        val builder=NotificationCompat.Builder(context)
+        val builder = NotificationCompat.Builder(context, channelID)
                 .setDefaults(Notification.DEFAULT_ALL)
                 .setContentTitle("New request")
                 .setContentText(message)
                 .setNumber(number)
+            .setChannelId(channelID)
                 .setSmallIcon(R.drawable.notification_icon_background)
                 .setContentIntent(PendingIntent.getActivity(context
                         ,0,intent,PendingIntent.FLAG_UPDATE_CURRENT))
@@ -31,6 +33,7 @@ class  Notifications(){
         }else{
             nm.notify(NOTIFIYTAG.hashCode(), builder.build())
         }
+//        nm!!.notify(NOTIFIYTAG,0, builder.build())
 
     }
 

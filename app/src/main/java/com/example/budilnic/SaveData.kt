@@ -42,7 +42,7 @@ class SaveData{
 
         var intent=Intent(context,myBroadcastReceiver::class.java)
         intent.putExtra("message"," alarm time")
-        intent.action="com.tester.alarmmanager"
+        intent.action = "com.example.budilnic"
         val pi=PendingIntent.getBroadcast(context,0,intent,PendingIntent.FLAG_UPDATE_CURRENT)
 
 
